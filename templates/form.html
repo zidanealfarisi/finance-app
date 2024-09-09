@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Financial Record</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Financial Record</h1>
+        <form method="post">
+            <label for="tanggal">Tanggal:</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+            <label for="kategori">Kategori:</label>
+            <select id="kategori" name="kategori" required>
+                <option value="Gaji">Gaji</option>
+                <option value="Income lain">Income lain</option>
+                <option value="Level 1">Level 1 - Makanan, Minuman, Rumah</option>
+                <option value="Level 2">Level 2 - Nabung, dana darurat & asuransi</option>
+                <option value="Level 3">Level 3 - Self reward, Dana pensiun, Investasi</option>
+                <option value="Level 4">Level 4 - Gengsi</option>
+            </select>
+            <label for="deskripsi">Deskripsi:</label>
+            <input type="text" id="deskripsi" name="deskripsi" required>
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="Uang masuk">Uang masuk</option>
+                <option value="Uang keluar">Uang keluar</option>
+                <option value="Uang disimpan">Uang disimpan</option>
+            </select>
+            <label for="jumlah">Jumlah:</label>
+            <input type="number" id="jumlah" name="jumlah" required>
+            <button type="submit">Simpan</button>
+        </form>
+
+        <h2>Saldo: Rp {{ saldo }}</h2>
+
+        <button>
+        <a href="{{ url_for('download_report', month_year=current_date) }}">Download Laporan Bulanan</a>
+        </button>
+    </div>
+</body>
+</html>
